@@ -18,8 +18,6 @@ class MapViewModel : ViewModel() {
     var allLocations = MutableLiveData<List<CellInfoData>>()
         private set
 
-    var allCellInfo = MutableLiveData<List<CellInfoData>>()
-        private set
 
     fun addCellInfo(cellInfoData: CellInfoData) {
         Log.d(TAG, "Inserting cellData: $cellInfoData")
@@ -53,7 +51,6 @@ class MapViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ cellInfoList ->
-                allCellInfo.value = cellInfoList
                 cellInfoList.forEach {
                     Log.d(TAG, it.toString())
                 }

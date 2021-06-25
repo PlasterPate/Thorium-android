@@ -9,8 +9,10 @@ import android.os.Looper
 import android.telephony.*
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import com.example.thorium.Constants
 import com.example.thorium.LocationHelper
@@ -92,6 +94,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         if (locationHelper.locationPermissionGranted)
             getTelephonyInfo()
+
     }
 
     @SuppressLint("MissingPermission")
@@ -241,7 +244,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun pickNewColor(codeMapValues: List<Int>): Int {
         var newColor = Constants.COLOR_POOL.random()
-        while (newColor in codeMapValues){
+        while (newColor in codeMapValues) {
             newColor = Constants.COLOR_POOL.random()
         }
         return newColor
@@ -261,6 +264,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         item.isChecked = true
         mapViewModel.getAllInfo()
         menuItemId = item.itemId
+
+        val legend = findViewById<ConstraintLayout>(R.id.tech_legend)
+        legend.visibility =
+            if (menuItemId == R.id.option_tech)
+                View.VISIBLE
+            else
+                View.GONE
+
         return true
     }
 

@@ -17,6 +17,8 @@ class ThoriumApplication : Application() {
 
         cellDatabase = CellDatabase.getInstance(this)
 
+
+        // Clear database tables
         LocalRepository.deleteAllCellInfo()
             .subscribeOn(Schedulers.io())
             .subscribe()

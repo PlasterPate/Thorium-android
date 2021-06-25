@@ -32,6 +32,14 @@ object Constants {
         Color.GREEN,
         Color.RED,
         Color.MAGENTA,
-        Color.YELLOW
+        Color.YELLOW,
+        Color.rgb(145, 130, 180),   // Purple
+        Color.rgb(128, 0, 0),       // Maroon
+        Color.rgb(255, 140, 0),     // Orange
+        Color.rgb(140, 70, 20),     // Brown
+        Color.rgb(210, 245, 0),     // Lime
+        Color.rgb(0, 0, 128),       // Navy
+        Color.rgb(255, 105, 180),   // Pink
+        Color.rgb(128, 128, 0),     // Olive
     )
 }
